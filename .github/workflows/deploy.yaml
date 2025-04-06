@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main  
+      - master
 
 jobs:
   test:
@@ -24,7 +24,8 @@ jobs:
             pip install -r requirements.txt
 
         - name: Set Django settings
-          run: echo "DJANGO_SETTINGS_MODULE=demo.settings
+          run: echo "DJANGO_SETTINGS_MODULE=demo.settings" >> $GITHUB_ENV
+
 
         - name: Run tests with pytest
           run: |
@@ -114,7 +115,7 @@ jobs:
 
 
   slack:
-    needs: deploy
+    needs: build
     runs-on: ubuntu-latest
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
