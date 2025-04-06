@@ -14,5 +14,5 @@ docker run --network=some-network --name my-container -p 8000:8000 -d my-image-n
 
 docker run --name ecommerce -p 8000:8000 -d ecommerce
 
-,
+
 
