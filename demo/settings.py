@@ -96,7 +96,10 @@ DATABASES = {
             'USER': database_user,
             'PASSWORD': database_password,
             'HOST': database_url,
-            'PORT': '5432'
+            'PORT': '5432',
+            'TEST': {
+                'NAME': database_name,  # Set a valid test database nam
+                }
         }
     }
 
@@ -141,3 +144,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 
+STRIPE_SECRET_KEY='ffffffffffffffff' 
