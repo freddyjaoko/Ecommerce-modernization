@@ -31,7 +31,13 @@ jobs:
             pip install -r requirements.txt
 
         - name: Set Django settings
-          run: echo "DJANGO_SETTINGS_MODULE=demo.settings" >> $GITHUB_ENV
+          run: |
+            echo "DJANGO_SETTINGS_MODULE=demo.settings" >> $GITHUB_ENV
+            echo "POSTGRES_ADMIN_PASSWORD=${{ secrets.POSTGRES_ADMIN_PASSWORD }}" >> $GITHUB_ENV
+            echo "POSTGRES_USER=${{ secrets.POSTGRES_USER }}" >> $GITHUB_ENV
+            echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
+            echo "POSTGRES_DB=${{ secrets.POSTGRES_DB }}" >> $GITHUB_ENV
+            echo "DJANGO_KEY=${{ secrets.DJANGO_KEY }}" >> $GITHUB_ENV
 
 
         - name: Run tests with pytest
