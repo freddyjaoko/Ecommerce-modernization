@@ -80,28 +80,28 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 
-"""
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": os.path.join(BASE_DIR, 'db.sqlite3')
     }
 }
+
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('POSTGRES_DB', 'your_database_name'),
+        'USER': os.getenv('POSTGRES_USER', 'your_user'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'your_password'),
+        'HOST': os.getenv('POSTGRES_HOST', 'localhost'),
+        'PORT': os.getenv('POSTGRES_PORT', '5432'),
+    }
+}
+
 """
 
-DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': database_name,
-            'USER': database_user,
-            'PASSWORD': database_password,
-            'HOST': database_url,
-            'PORT': '5432',
-            'TEST': {
-                'NAME': database_name,  # Set a valid test database nam
-                }
-        }
-    }
 
 if ENVIRONMENT == 'production':
     DEBUG = True
