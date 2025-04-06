@@ -1,10 +1,22 @@
 import os
+import psycopg2
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Access environment variables
+database_password = os.getenv("POSTGRES_ADMIN_PASSWORD")
+database_url = os.getenv("DATABASE_URL")
+database_user = os.getenv("POSTGRES_USER")
+database_name = os.getenv("POSTGRES_DB")
+django_key = os.getenv("DJANGO_KEY")
 
 ENVIRONMENT = os.getenv('ENVIRONMENT', 'development')
 
 DEBUG = True
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SECRET_KEY = '-05sgp9!deq=q1nltm@^^2cc+v29i(tyybv3v2t77qi66czazj'
+SECRET_KEY = django_key
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
@@ -80,10 +92,10 @@ DATABASES = {
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'main',
-            'USER': 'postgres',
-            'PASSWORD': 'password',
-            'HOST': '172.18.0.2',
+            'NAME': database_name,
+            'USER': database_user,
+            'PASSWORD': database_password,
+            'HOST': database_url,
             'PORT': '5432'
         }
     }
