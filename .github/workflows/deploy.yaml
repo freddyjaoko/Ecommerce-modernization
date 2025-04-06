@@ -1,5 +1,10 @@
 name: CI/CD Pipeline
 
+on:
+  push:
+    branches:
+      - main  
+
 env:
   POSTGRES_ADMIN_PASSWORD: ${{ secrets.POSTGRES_ADMIN_PASSWORD }}
   POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
@@ -7,10 +12,6 @@ env:
   POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
   DJANGO_KEY: ${{ secrets.DJANGO_KEY }}
 
-on:
-  push:
-    branches:
-      - main  
 
 jobs:
   test:
