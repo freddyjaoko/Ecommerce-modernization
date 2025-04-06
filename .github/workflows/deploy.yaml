@@ -5,14 +5,6 @@ on:
     branches:
       - main  
 
-env:
-  POSTGRES_ADMIN_PASSWORD: ${{ secrets.POSTGRES_ADMIN_PASSWORD }}
-  POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-  DATABASE_URL: ${{ secrets.DATABASE_URL}}
-  POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
-  DJANGO_KEY: ${{ secrets.DJANGO_KEY }}
-
-
 jobs:
   test:
       runs-on: ubuntu-latest
