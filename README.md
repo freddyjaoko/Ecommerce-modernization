@@ -1,6 +1,6 @@
 # 🛒 Ecommerce Modernization
 
-A modern, containerized ecommerce application designed with best DevOps practices. This project includes full CI/CD automation, comprehensive testing, and seamless deployment to the cloud.
+Took a dated application and turned it into a modern, containerized ecommerce application designed with best DevOps practices. This project includes full CI/CD automation, comprehensive testing, and seamless deployment to the cloud.
 
 ---
 
@@ -95,7 +95,7 @@ Docker images are pushed automatically to:
 
 The latest Docker image is deployed to [Render](https://ecommerce-app-8vgr.onrender.com) via a deploy hook or Docker service setup.
 
-📍 Deployed App: https://your-app-url.onrender.com
+📍 Deployed App: https://ecommerce-app-8vgr.onrender.com
 
 ---
 
